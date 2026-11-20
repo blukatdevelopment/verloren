@@ -3,7 +3,7 @@
 ##############################################################################*/
 SETTINGS.logLevel = 0;
 SETTINGS.devMode = false;
-SETTINGS.devUrl = "file:///home/blukat/localdev/neocities/games/walker/";
+SETTINGS.devUrl = "file:///home/blukat/localdev/verloren/";
 SETTINGS.prodUrl = "https://blukat.neocities.org/games/walker/";
 SETTINGS.assetsDirectory = "assets/";
 SETTINGS.defaultPlayerActor = "wrath";

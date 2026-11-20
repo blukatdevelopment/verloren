@@ -1,0 +1,30 @@
+/*##############################################################################
+# Record representing one attack an actor can perform
+##############################################################################*/
+STATS.Attack = {};
+STATS.Attack.new = function(){
+  let atk = {
+    upAnimation: null,
+    downAnimation: null,
+    leftAnimation: null,
+    rightAnimation: null,
+    damage: null,
+    frames: null,
+    damageFrames: [],
+    damageDice: [],
+    energyCost: 0
+  };
+  atk.getDamage = function(){
+    let dmg = 0;
+    if(atk.damage != null){
+      dmg += atk.damage;
+    }
+    for(let die of atk.damageDice){
+      dmg += die.roll();
+    }
+    dmg *= -1;
+    dmg *= SETTINGS.PiecesPerHeart;
+    return dmg;
+  };
+  return atk;
+};

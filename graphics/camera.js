@@ -1,0 +1,37 @@
+// Basic rectangular camera that can be panned
+GRAPHICS.Camera = {};
+GRAPHICS.Camera.new = function(position, size){
+  let cam = {
+    rect: SHAPES.RECT.new(position, size)
+  };
+  cam.move = function(destination, ignoreBounds){
+    if(cam.rect.position.x == destination.x && cam.rect.position.y == destination.y){
+      // Nothing to do
+      return;
+    }
+    if(ignoreBounds || cam.boundsCheck(destination)){
+      // Valid destination
+      cam.rect.position = destination;
+      return;
+    }
+    let pos = cam.rect.position;
+    let destX = VECTOR2.new(destination.x, pos.y);
+    if(cam.boundsCheck(destX)){
+      // Move only on x axis if possible
+      cam.rect.position = destX;
+      return;
+    }
+    let destY = VECTOR2.new(pos.x, destination.y);
+    if(cam.boundsCheck(destY)){
+      // Move only on y axis if possible
+      cam.rect.position = destY;
+      return;
+    }
+  };
+  cam.boundsCheck = function(destination){
+    let rect = cam.rect.clone();
+    rect.position = destination;
+    return SCENE.boundsCheck(rect);
+  };
+  return cam;
+};

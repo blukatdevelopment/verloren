@@ -1,0 +1,152 @@
+/*##############################################################################
+# Should reflect the spritesheets found in /assets
+##############################################################################*/
+SETTINGS.staticSheetList = [];
+SETTINGS.staticSheetList.push({
+    name: "village",
+    sheet: "village.png",
+    resolutionX: 1024,
+    resolutionY: 1024,
+    cells: 1,
+    sprites: ["village"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "grassTile",
+    sheet: "grassTile.png",
+    resolutionX: 1024,
+    resolutionY: 1024,
+    cells: 1,
+    sprites: ["grassTile"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "emptyTile",
+    sheet: "emptyTile.png",
+    resolutionX: 1024,
+    resolutionY: 1024,
+    cells: 1,
+    sprites: ["emptyTile"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "stoneTile",
+    sheet: "stoneTile.png",
+    resolutionX: 1024,
+    resolutionY: 1024,
+    cells: 1,
+    sprites: ["stoneTile"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "items",
+    sheet: "items.png",
+    resolutionX: 16,
+    resolutionY: 16,
+    cells: 22,
+    sprites: [
+        "Apple", "Seeds", "Talon", "Stick",
+        "Rope", "Rock", "RockGrass", "Root",
+        "RedBerry", "GreenBerry", "BlueBerry", "Flint",
+        "FlintKnife", "FlintAxe", "FlintSpear", "FlintSword",
+        "LeatherHelm","LeatherTunic","LeatherLeggings","LeatherShoes",
+        "LeatherCape", "Leather", "YellowShroom1", "YellowShroom2",
+        "YellowShroom3", "GreyShroom", "MeatSteak", "MeatDrumstick",
+        "MeatLeg", "Flower1", "Flower2", "Flower3",
+        "Flower4", "Flower5", "Flower6", "SeedPouch",
+        "Grass", "Shrub1", "Shrub2", "Shrub3",
+        "Resin", "Torch"
+    ]
+});
+
+
+SETTINGS.staticSheetList.push({
+    name: "cave",
+    sheet: "cave_terrain.png",
+    resolutionX: 256,
+    resolutionY: 256,
+    cells: 5,
+    sprites: [
+        "Floor", "NWall", "SWall",
+        "EWall", "WWall"
+    ]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "cursors",
+    sheet: "cursors.png",
+    resolutionX: 8,
+    resolutionY: 8,
+    cells: 6,
+    sprites: [
+        "roundBlack", "roundRed", "roundGreen",
+        "arrowBlack", "arrowRed", "arrowGreen",
+        "arrowBlackDown"
+    ]
+});
+SETTINGS.staticSheetList.push({
+    name: "hotbar",
+    sheet: "hotbar.png",
+    resolutionX: 154,
+    resolutionY: 18,
+    cells: 1,
+    sprites: ["hotbar"]
+});
+SETTINGS.staticSheetList.push({
+    name: "scenery64",
+    sheet: "scenery64.png",
+    resolutionX: 64,
+    resolutionY: 64,
+    cells: 7,
+    sprites: [
+        "tree", "bush", "berryBush",
+        "boulder", "slimepit", "hovel",
+        "campfire", "caveEntrance"
+    ]
+});
+SETTINGS.staticSheetList.push({
+    name: "cave64",
+    sheet: "cave_64.png",
+    resolutionX: 64,
+    resolutionY: 64,
+    cells: 6,
+    sprites: [
+        "rockPile", "spiderWeb", "boulder",
+        "stalactites", "crystals", "caveExit"
+    ]
+});
+SETTINGS.staticSheetList.push({
+    name: "inventory",
+    sheet: "inventory.png",
+    resolutionX: 154,
+    resolutionY: 52,
+    cells: 1,
+    sprites: ["inventory"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "statusbar",
+    sheet: "statusbar.png",
+    resolutionX: 80,
+    resolutionY: 89,
+    cells: 1,
+    sprites: ["statusbar"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "foodbar",
+    sheet: "foodbar.png",
+    resolutionX: 48,
+    resolutionY: 64,
+    cells: 1,
+    sprites: ["foodbar"]
+});
+
+SETTINGS.staticSheetList.push({
+    name: "paperdoll",
+    sheet: "paperdoll.png",
+    resolutionX: 89,
+    resolutionY: 80,
+    cells: 1,
+    sprites: ["paperdoll"]
+});

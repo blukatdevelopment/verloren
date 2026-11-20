@@ -1,0 +1,78 @@
+/*##############################################################################
+# Scene: LevelEditor
+##############################################################################*/
+SCENE.SCENES.LevelEditor = function(){
+  let le = SCENE.SCENES.BaseScene();
+  le.name = SCENES.levelEditor;
+  le.isSetup = false;
+  le.gameState = GAMESTATES.pause;
+  le.levelRenderer = null;
+  le.input = LEVEL.Editor.EditorInputController.new(le);
+  le.physics = null;
+  le.selected = null;
+  le.hovered = null;
+  le.tooltip = null;
+  le.snap = true;
+  le.setup = function(){
+    SESSION.EditorSession();
+    le.levelRenderer = LEVEL.Renderer.new();
+    le.levelRenderer.init();
+    // Toggle debug level
+    let data =  LEVEL.Generate.DebugLevel();// LEVEL.Static.Cave();//LEVEL.Generate.DebugLevel();//
+    le.levelRenderer.loadData(data);
+    if(data.playerPosition){
+      GRAPHICS.centerCamera(data.playerPosition);
+    }
+    le.levelRenderer.ui = UI.COMPONENTS.LevelEditorUIManager.new(le);
+    le.ui = le.levelRenderer.ui;
+    le.levelRenderer.updateCursor = function(){
+      SCENE.updateCursor(SPRITES.static.cursors.roundBlack);
+    };
+    le.physics = le.levelRenderer.physics;
+    le.levelRenderer.lighting.setDarkness(0);
+    le.isSetup = true;
+  };
+
+  le.update = function(){
+    if(!le.isSetup){
+      le.setup();
+    }
+    GRAPHICS.setDisplayMode(DISPLAY_MODES.camera);
+    le.levelRenderer.update();
+    le.input.update();
+    if(le.tooltip){
+      GRAPHICS.drawTooltip(le.tooltip);
+    }
+  };
+  le.createEntity = function(entity){
+    le.levelRenderer.addEntity(entity);
+  };
+  le.destroyEntity = function(entity){
+    le.levelRenderer.destroyEntity(entity);
+  };
+  le.notification = function(message){
+    le.levelRenderer.notification(message);
+  }
+  le.getPlayerOne = function(){
+    return le.levelRenderer.player;
+  };
+  le.emitLight = function(light){
+    le.levelRenderer.emitLight(light);
+  };
+  le.export = function(){
+    console.log("Export started");
+    
+    console.log("Preparing data");
+    let dataObj = le.levelRenderer.getData();
+    //console.log("Level dataobj:" + JSON.stringify(dataObj));
+    let data = dataObj.toJs();
+    
+    console.log("Downloading data");
+    let fileName = "LevelName_" + UTILITY.timeStamp() + ".js";
+    UTILITY.download(data, fileName);
+  };
+  le.boundsCheck = function(rect){
+    return le.levelRenderer.boundsCheck(rect);
+  };
+  return le;
+};

@@ -51,6 +51,7 @@ INPUT.KEYS = {
   K_X: 88,
   K_Y: 89,
   K_Z: 90,
+  K_ENTER: 13,
   K_SPACE: 32,
   K_TAB: 9,
   K_LEFT_SHIFT: 16,
@@ -58,14 +59,10 @@ INPUT.KEYS = {
 };
 
 // Configure which keys will be used for ondown
-var KEYS_USED = [
-
-];
+var KEYS_USED = [];
 
 // Configure keys to check for presses
-var KEY_PRESSES_USED = [
-
-];
+var KEY_PRESSES_USED = [];
 
 // Key state
 INPUT.activeKeys = {};

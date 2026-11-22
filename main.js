@@ -49,12 +49,18 @@ MAIN.init = function(){
   GRAPHICS.init();
   INPUT.initInput();
   SCENE.init();
-}
+};
 
 MAIN.main = function(){
   this.init();
   this.GameLoop();
-}
+};
+
+MAIN.handleGlobalInputs = function(){
+  if(INPUT.keyPress(INPUT.KEYS.K_ENTER)){
+    GRAPHICS.toggleFullScreen();
+  }
+};
 
 MAIN.updateDelayedExecutions = function(){
   for(let execution of MAIN.DELAYED_EXECUTIONS){

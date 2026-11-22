@@ -20,7 +20,7 @@ TIME.TimeController.new = function(){
         cal.tick();
         cal.lastUpdate = Date.now();
     };
-    cal.tick(){
+    cal.tick = function(){
         let now = Date.now();
         cal.accumulatedMillis += now - cal.lastUpdate;
         if(cal.accumulatedMillis >= TIME.MillisPerMinute){

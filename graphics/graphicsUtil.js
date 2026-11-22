@@ -8,6 +8,7 @@ GRAPHICS.init = function(){
   GRAPHICS._context.imageSmoothingEnabled = false;
   GRAPHICS._camera = GRAPHICS.Camera.new(VECTOR2.new(0,0), VECTOR2.new(400,400));
   GRAPHICS.setDisplayMode(DISPLAY_MODES.static);
+  GRAPHICS._fullScreen = false;
 }
 
 GRAPHICS.Colors = {};
@@ -303,4 +304,14 @@ GRAPHICS.isValidImage = function(src) {
 
     img.src = src;
   });
+};
+
+GRAPHICS.toggleFullScreen = function(){
+  GRAPHICS._fullScreen = !GRAPHICSS._fullScreen;
+  if(GRAPHICS._fullScreen){
+    GRAPHICS._canvas.requestFullscreen();
+  }
+  else{
+    Document.exitFullscreen();
+  }
 };

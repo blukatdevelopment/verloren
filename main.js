@@ -25,6 +25,7 @@ MAIN.GameLoop = function(){
   while(MAIN.LAG >= SETTINGS.frameDuration && iterations < maxIterations){
     iterations++;
     SCENE.update();
+    MAIN.handleGlobalInputs();
     INPUT.clearPresses();
     MAIN.LAG -= SETTINGS.frameDuration;
     

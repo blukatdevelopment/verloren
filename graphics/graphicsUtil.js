@@ -307,11 +307,13 @@ GRAPHICS.isValidImage = function(src) {
 };
 
 GRAPHICS.toggleFullScreen = function(){
-  GRAPHICS._fullScreen = !GRAPHICSS._fullScreen;
+  GRAPHICS._fullScreen = !GRAPHICS._fullScreen;
   if(GRAPHICS._fullScreen){
+    console.log("Entering full screen");
     GRAPHICS._canvas.requestFullscreen();
   }
   else{
-    Document.exitFullscreen();
+    console.log("Exiting full screen");
+    document.exitFullscreen();
   }
 };

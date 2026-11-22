@@ -11,17 +11,17 @@ TIME.Duration.new = function(days, hours, minutes){
         return TIME.Duration.new(d.days, d.hours, d.minutes);
     }
     d.addMinutes = function(minutes){
-        d.minutes += minutes;
+        d.minutes += Math.trunc(minutes);
         if(d.minutes > TIME.MinutesInHour){
-            let hours = d.minutes / TIME.MinutesInHour;
+            let hours = Math.trunc(d.minutes / TIME.MinutesInHour);
             d.addHours(hours);
             d.minutes = d.minutes % TIME.MinutesInHour;
         }
     };
     d.addHours = function(hours){
-        d.hours += hours;
+        d.hours += Math.trunc(hours);
         if(d.hours > TIME.HoursInDay){
-            let days = d.hours / TIME.HoursInDay;
+            let days = Math.trunc(d.hours / TIME.HoursInDay);
             d.addDays(days);
             d.hours = d.hours % TIME.HoursInDay;
         }

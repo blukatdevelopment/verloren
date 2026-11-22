@@ -78,6 +78,11 @@ LEVEL.Renderer.new = function(){
         return data;
     };
     lr.update = function(){
+        SESSION.Update();
+        if(lr.data && lr.data.darkness == 0){
+            lr.lighting.setDarkness(SESSION.GetDarkness());    
+        }
+        
         lr.physics.update();
         if(SCENE.getGameState() === GAMESTATES.play){
             for(let entity of lr.entities){

@@ -12,7 +12,8 @@ SESSION.Session.new = function(){
         nextLevelId: 0,
         activeLevel: null,
         nextDoorId: 0,
-        doors: {}
+        doors: {},
+        time: null
     };
 
     s.addExterior = function(ext){
@@ -95,6 +96,11 @@ SESSION.Session.new = function(){
         }
         else{
             console.log("Door not found: " + doorId);
+        }
+    };
+    s.update = function(){
+        if(s.time){
+            s.time.update();
         }
     };
 

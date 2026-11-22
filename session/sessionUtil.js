@@ -25,6 +25,8 @@ SESSION.DebugSession = function(){
     s.activeLevel = s.exteriors[0];
     s.linkDoors();
     s.playerData.player = ACTORFACTORY.PlayerOne();
+    s.time = TIME.TimeController.new();
+    s.time.time.hours = 6;
     return s;
 };
 
@@ -50,3 +52,14 @@ SESSION.EnterLevel = function(levelId, doorId){
 SESSION.ClearSession = function(){
     SESSION.INSTANCE = null;
 };
+
+SESSION.Update = function(){
+    SESSION.INSTANCE.update();
+}
+
+SESSION.GetDarkness = function(){
+    if(SESSION.INSTANCE.time){
+        return SESSION.INSTANCE.time.getCurrentDarkness();
+    }
+    return 0;
+}

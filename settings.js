@@ -59,9 +59,6 @@ DISPLAY_MODES.camera = "camera";
 // Entity Factory
 let ENTITY_FACTORY = {};
 
-TIME.second = 1000;
-TIME.minute = 60000;
-
 GEAR.slots.head = "head";
 GEAR.slots.hand = "hand";
 GEAR.slots.offHand = "offHand";

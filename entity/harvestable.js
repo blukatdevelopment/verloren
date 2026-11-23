@@ -42,17 +42,13 @@ ENTITY.Harvestable.new = function(name, items, emptySprite, fullSprite, rect, is
         return true;
     };
     h.onInteract = function(interaction){
-        console.log("1");
         if(interaction.initiator == null){
-            console.log("2");
             return;
         }
         if(h.harvested || h.items.length == 0){
-            console.log("3");
             return;
         }
         if(!h.canHarvest(interaction.initiator)){
-            console.log("4");
             UTILITY.notification("You have no space for this item.");
             return;
         }
@@ -62,9 +58,8 @@ ENTITY.Harvestable.new = function(name, items, emptySprite, fullSprite, rect, is
             if(item.quantity > 1){
                 message += "(" + item.quantity + ")";
             }
-            UTILITY.notification(message);    
+            UTILITY.notification(message);
         }
-        console.log("5");
         h.harvested = true;
     };
     h.getSpriteRect = function(){

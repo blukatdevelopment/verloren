@@ -16,6 +16,7 @@ UI.COMPONENTS.PlayerUIManager.new = function(){
     cm.craftingMenu = UI.COMPONENTS.CraftingMenu.new(cm);
     cm.dragged = null;
     cm.activeMenu = MENUS.None;
+    cm.dialogue = UI.COMPONENTS.DialogueUIManager.new(cm);
 
     cm.update = function(){
         // Always update notifications
@@ -47,6 +48,9 @@ UI.COMPONENTS.PlayerUIManager.new = function(){
         }
         if(cm.activeMenu == MENUS.Equip){
             cm.handleDrag();    
+        }
+        if(cm.activeMenu == MENUS.Dialogue){
+            cm.dialogue.update();
         }
     };
 
@@ -155,6 +159,9 @@ UI.COMPONENTS.PlayerUIManager.new = function(){
             cm.navBar.draw();
             cm.hotbar.draw();
             cm.inventory.draw();
+        }
+        else if(cm.activeMenu == MENUS.Dialogue){
+            cm.dialogue.draw();
         }
         
         if(cm.dragged == null){

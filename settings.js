@@ -25,8 +25,7 @@ SETTINGS.PiecesPerHeart = 4;
 // States that effect rendering.
 let GAMESTATES = {};
 GAMESTATES.play = "play";
-GAMESTATES.playerMenus = "inventory";
-GAMESTATES.dialogue = "dialogue";
+GAMESTATES.playerMenus = "playerMenus";
 GAMESTATES.pause = "pause";
 
 let SCENES = {};
@@ -42,6 +41,7 @@ let MENUS = {}
 MENUS.None = "None";
 MENUS.Equip = "Equip";
 MENUS.Craft = "Craft";
+MENUS.Dialogue = "Dialogue";
 
 // Graphics
 SETTINGS.viewportMin = 0;

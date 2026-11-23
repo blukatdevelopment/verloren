@@ -309,11 +309,9 @@ GRAPHICS.isValidImage = function(src) {
 GRAPHICS.toggleFullScreen = function(){
   GRAPHICS._fullScreen = !GRAPHICS._fullScreen;
   if(GRAPHICS._fullScreen){
-    console.log("Entering full screen");
     GRAPHICS._canvas.requestFullscreen();
   }
   else{
-    console.log("Exiting full screen");
     document.exitFullscreen();
   }
 };

@@ -17,7 +17,7 @@ LEVEL.TileMap.new = function(sprites, tiles, size){
     };
     tm.getSpriteIndexByCoords = function(coords){
         let index = coords.y * tm.size + coords.x;
-        console.log("getSpriteBycoords " + coords.toString() + ", index " + index);
+        //console.log("getSpriteBycoords " + coords.toString() + ", index " + index);
         return tm.tiles[index];
     };
     return tm;

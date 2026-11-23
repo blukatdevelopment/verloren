@@ -412,7 +412,6 @@ ACTOR.new = function(){
     quantityLeft = atr.hotbar.removeItemQuantity(itemName, quantityLeft);
   };
   atr.die = function(){
-    console.log("Dead!");
     if(atr.lootTable){
       let loot = atr.lootTable.getLoot();
       for(let item of loot){

@@ -27,6 +27,13 @@ ACTORFACTORY.Deer = function(){
   se.stats = STATS.StatsController.new();
   se.stats.setAttributeValue(STATS.Attributes.healthMax, 3);
   se.stats.setAttributeValue(STATS.Attributes.speed, 1.5);
+  se.onInteract = function(){
+    console.log("Deer interaction");
+    UTILITY.openLinearDialogue([
+      "The deer looks you up and down.",
+      "The deer says. \"Merp!\"."
+    ]);
+  };
 
   let lootTable = ITEMS.LootTable.new();
   lootTable.addItem(ITEMS.getByName(ITEMS.Names.Leather), 1, 4);

@@ -24,6 +24,23 @@ UTILITY.clamp = function(value, min, max){
     return value;
 }
 
+UTILITY.openLinearDialogue = function(messages){
+    let renderer = SCENE.getLevelRenderer();
+    if(renderer == null || renderer.ui == null){
+        return;
+    }
+    renderer.ui.dialogue.openLinearDialogue(messages);
+};
+UTILITY.closeDialogue = function(){
+    let renderer = SCENE.getLevelRenderer();
+    if(renderer == null || renderer.ui == null){
+        return;
+    }
+    SCENE.setGameState(GAMESTATES.play);
+    renderer.ui.dialogue.closeDialogue();
+
+};
+
 UTILITY.Interaction = {};
 UTILITY.Interaction.new = function(initiator){
     let interaction = {

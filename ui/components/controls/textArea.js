@@ -32,7 +32,7 @@ UI.COMPONENTS.TextArea.new = function(_rect, _text, _textSize){
             let rect = SHAPES.RECT.new(origin.clone(), VECTOR2.new(ta.rect.size.x, ta.textHeight));
             rect.position.y += (i * ta.textHeight);
             rect.position.y += (i * ta.spacing);
-            console.log("rect: " + rect.toString());
+            //console.log("rect: " + rect.toString());
             ta.rows.push(UI.COMPONENTS.TextLabel.new(rect, "", null, null));
         }
     };

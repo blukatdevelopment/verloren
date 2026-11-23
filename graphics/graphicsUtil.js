@@ -252,8 +252,8 @@ GRAPHICS.drawText = function(text, x, y, _textSize, color){
 GRAPHICS.getTextSize = function(text, textSize){
   let ctx = GRAPHICS.getContext();
   ctx.font = "" + textSize + "px Arial";
-  let measurement = ctx.measureText(text, );
-  return VECTOR2.new(measurement.width, measurement.height);
+  let measurement = ctx.measureText(text);
+  return VECTOR2.new(measurement.width, measurement.emHeightAscent + measurement.emHeightDescent);
 };
 
 // Draw text relative to viewport

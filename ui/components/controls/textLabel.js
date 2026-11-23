@@ -31,8 +31,23 @@ UI.COMPONENTS.TextLabel.new = function(rect, text, tooltip, onClick){
     };
     tl.draw = function(){
         let pos = tl.rect.position;
-        let yOff = 5;
+        let yOff = GRAPHICS.getTextSize(tl.text, tl.textSize).y/2;
         GRAPHICS.drawText(tl.text, pos.x, pos.y + yOff, tl.textSize, tl.color);
+    };
+    tl.getCharacterCountThatFits = function(text){
+        let substr = "";
+        let scaledX = GRAPHICS.scale(tl.rect.size.x);
+        for(let i = 0; i < text.length; i++){
+            substr = substr + text[i];
+            let measurements = GRAPHICS.getTextSize(substr);
+            if(measurements.x == scaledX){
+                return substr.length;
+            }
+            else if(measurements.x > scaledX){
+                return substr.length-1;
+            }
+        }
+        return text.length;
     };
     return tl;
 };

@@ -31,12 +31,15 @@ Art: https://libresprite.github.io/online/
 - Asset import tool (converting images to text)
 - Spell system
 - Potions and powerups
-- Day/night cycle
+- Level-up screen
+- "Custom" status effects
 - Seasons cycle
 - Player building/terraforming
 - Farming / plant life cycles
 - Crafting stations
 - Local multiplayer coop
+- Sleep / Exhaustion
+- Icons for active status effects
 
 #### Refactor/fix todo list
 - Render Inventory, Paperdoll, Statusbar, and Hotbar programatically.

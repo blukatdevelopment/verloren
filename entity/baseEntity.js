@@ -14,8 +14,9 @@ ENTITY.baseEntity.new = function(){
         renderer: SPRITES.SpriteRenderer.new(),
         label: "",
         renderLayer: GRAPHICS.RenderLayers.Default,
-        tags: []
-
+        tags: [],
+        damageLabel: null,
+        damageLabelFrames: 0
     };
     be.renderer.parent = be;
     be.collider.parent = be;
@@ -34,6 +35,10 @@ ENTITY.baseEntity.new = function(){
         }
         if(be.getLabel() != ""){
             GRAPHICS.drawTextRelative(be.getLabel(), be.position.x, be.position.y);
+        }
+        if(be.damageLabel && be.damageLabel != "" && be.damageLabelFrames > 0){
+            GRAPHICS.drawTextRelative(be.damageLabel, be.position.x, be.position.y + SETTINGS.defaultFontSize, "red");
+            be.damageLabelFrames -= 1;
         }
     };
     be.getPosition = function(){ return be.position; };

@@ -12,7 +12,7 @@ UTILITY.copyProperty = function(sourceObj, destObj, property){
     if(Object.hasOwn(sourceObj, property)){
         destObj[property] = sourceObj[property];
     }
-}
+};
 
 UTILITY.clamp = function(value, min, max){
     if(value < min){
@@ -22,15 +22,25 @@ UTILITY.clamp = function(value, min, max){
         return max;
     }
     return value;
-}
+};
 
-UTILITY.openLinearDialogue = function(messages){
+UTILITY.openLinearDialogue = function(messages, interlocutor){
     let renderer = SCENE.getLevelRenderer();
     if(renderer == null || renderer.ui == null){
         return;
     }
     renderer.ui.dialogue.openLinearDialogue(messages);
+    SCENE.setInterlocutor(interlocutor);
 };
+UTILITY.openBranchingDialogue = function(nodes, interlocutor){
+    let renderer = SCENE.getLevelRenderer();
+    if(renderer == null || renderer.ui == null){
+        return;
+    }
+    renderer.ui.dialogue.openBranchingDialogue(nodes);
+    SCENE.setInterlocutor(interlocutor);
+};
+
 UTILITY.closeDialogue = function(){
     let renderer = SCENE.getLevelRenderer();
     if(renderer == null || renderer.ui == null){

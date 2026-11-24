@@ -124,3 +124,13 @@ SCENE.getLevelRenderer = function(){
   var activeScene = SCENE.getActiveScene();
   return activeScene.getLevelRenderer();
 };
+
+SCENE.getInterlocutor = function(){
+  var activeScene = SCENE.getActiveScene();
+  return activeScene.interlocutor;
+};
+
+SCENE.setInterlocutor = function(interlocutor){
+  var activeScene = SCENE.getActiveScene();
+  activeScene.interlocutor = interlocutor;
+};

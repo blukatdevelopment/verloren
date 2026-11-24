@@ -22,6 +22,11 @@ UI.COMPONENTS.DialogueUIManager.new = function(_parent){
         dm.activeDialogue = UI.COMPONENTS.LinearDialogue.new(messages);
         SCENE.setGameState(GAMESTATES.playerMenus);
     };
+    dm.openBranchingDialogue = function(nodes){
+        dm.parent.activeMenu = MENUS.Dialogue;
+        dm.activeDialogue = UI.COMPONENTS.BranchingDialogue.new(nodes);
+        SCENE.setGameState(GAMESTATES.playerMenus);
+    };
     dm.closeDialogue = function(){
         dm.parent.activeMenu = MENUS.None;
         SCENE.setGameState(GAMESTATES.play);

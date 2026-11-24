@@ -50,3 +50,4 @@ CRAFTING.Recipes = [];
 CRAFTING.RecipeNames = {};
 let WORLD = {};
 let SESSION = {};
+let DIALOGUE = {};

@@ -22,7 +22,8 @@ Art: https://libresprite.github.io/online/
 - Graphics for equipped gear
 - State machines for NPC agents
 - Traverse overworld
-- Dialogue
+- Dialogue trees
+- Trade dialogue
 - Cinematic/cutscene/slideshow scripting
 - Settings screen
 - Input remapping / controller support

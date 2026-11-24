@@ -12,7 +12,8 @@ STATS.Attack.new = function(){
     frames: null,
     damageFrames: [],
     damageDice: [],
-    energyCost: 0
+    energyCost: 0,
+    attackTags: null
   };
   atk.getDamage = function(){
     let dmg = 0;

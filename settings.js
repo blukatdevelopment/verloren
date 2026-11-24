@@ -2,7 +2,7 @@
 # Settings, configuration, and constants
 ##############################################################################*/
 SETTINGS.logLevel = 0;
-SETTINGS.devMode = false;
+SETTINGS.devMode = true;
 SETTINGS.devUrl = "file:///home/blukat/localdev/verloren/";
 SETTINGS.prodUrl = "https://blukat.neocities.org/games/walker/";
 SETTINGS.assetsDirectory = "assets/";

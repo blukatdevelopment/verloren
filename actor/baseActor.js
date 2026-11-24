@@ -218,7 +218,7 @@ ACTOR.new = function(){
     rect.recenter(dest);
 
     let colliders = atr.collider.controller.rectHitScan([atr.getEntityId()], rect);
-    let attackData = STATS.AttackData.new(atr.direction, atk.getDamage(), atr, { knockback: 10 });
+    let attackData = STATS.AttackData.new(atr.direction, atk.getDamage(), atr, { knockback: 10, tags:  atk.tags});
     for(let cl of colliders){
       cl.parent.onAttacked(attackData);
     }
@@ -256,7 +256,7 @@ ACTOR.new = function(){
 
     let health = atr.stats.getStat(STATS.Resources.health);
     if(health.value < 1){
-      atr.die();
+      atr.destroy();
     }
     if(attackData.knockback > 0){
       //console.log("Being knocked back in direction" + attackData.direction);
@@ -410,41 +410,6 @@ ACTOR.new = function(){
     let quantityLeft = quantity;
     quantityLeft = atr.inventory.removeItemQuantity(itemName, quantityLeft);
     quantityLeft = atr.hotbar.removeItemQuantity(itemName, quantityLeft);
-  };
-  atr.die = function(){
-    if(atr.lootTable){
-      let loot = atr.lootTable.getLoot();
-      for(let item of loot){
-        atr.dropItem(item);
-      }
-    }
-    SCENE.destroyEntity(atr);
-  };
-  atr.dropItem = function(item){
-    // Create an item stack within short range of body
-    let itemStack = ENTITY.ItemStack.new(item);
-    let position = atr.position.clone();
-    let drift = 32;
-    let placed = false;
-    let offset = null;
-    itemStack.position = position;
-    SCENE.createEntity(itemStack);
-
-    // Position the item stack
-    itemStack.collider.rigid = true;
-    let iterations = 0;
-    while(!placed && iterations < 1000){
-      offset = VECTOR2.new(UTILITY.randRange(-drift, drift),UTILITY.randRange(-drift, drift));
-      let dropPos = offset.add(position);
-      let collision = itemStack.collider.moveAndCollideShort(dropPos, true, [atr.getEntityId()]);
-      if(!collision){
-        placed = true;
-      }
-      iterations++;
-    }
-
-    itemStack.collider.rigid = false;
-
   };
   return atr;
 };

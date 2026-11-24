@@ -37,6 +37,10 @@ STATS.Effect.Names.MagicGain = "MagicGain";
 STATS.Effect.Sources = {};
 STATS.Effect.Sources.Body = "Body";
 
+STATS.AttackTags = {};
+STATS.AttackTags.Axe = "Axe"; // Can chop wood
+STATS.AttackTags.Pickaxe = "Pickaxe"; // Can mine
+
 STATS.getDefaultAttributes = function(){
   let attributes = {};
   attributes[STATS.Attributes.speed] = STATS.Attribute.new(STATS.Attributes.speed, 5);
@@ -47,7 +51,6 @@ STATS.getDefaultAttributes = function(){
   attributes[STATS.Attributes.lightRadius] = STATS.Attribute.new(STATS.Attributes.lightRadius, 0);
   return attributes;
 };
-
 
 STATS.getDefaultResources = function(){
   let resources = {};

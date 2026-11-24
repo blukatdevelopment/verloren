@@ -45,6 +45,22 @@ STATS.AttackFactory.Axe = function(){
   atk.frames = 3;
   atk.damageFrames = [1];
   atk.energyCost = 3;
+  atk.tags = [STATS.AttackTags.Axe];
+  return atk;
+};
+
+STATS.AttackFactory.Pickaxe = function(){
+  let atk = STATS.Attack.new();
+  atk.upAnimation = ACTOR_ANIMATIONS.meleeUp;
+  atk.downAnimation = ACTOR_ANIMATIONS.meleeDown;
+  atk.rightAnimation = ACTOR_ANIMATIONS.meleeRight;
+  atk.leftAnimation = ACTOR_ANIMATIONS.meleeLeft;
+  atk.damage = 24;
+  atk.damageDice = [];
+  atk.frames = 3;
+  atk.damageFrames = [1];
+  atk.energyCost = 3;
+  atk.tags = [STATS.AttackTags.Pickaxe];
   return atk;
 };
 

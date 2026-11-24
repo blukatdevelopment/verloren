@@ -35,7 +35,17 @@ ENTITYFACTORY.BerryBush = function(){
 ENTITY.ENTITIES.BirchTree = "BirchTree";
 ENTITYFACTORY.BirchTree = function(){
     let sprite = SPRITES.static.scenery64.tree;
-    let ent = ENTITY.Scenery.new(ENTITY.ENTITIES.BirchTree, sprite, VECTOR2.new(0,0));
+    let lootTable = ITEMS.LootTable.new();
+    lootTable.addItem(ITEMS.getByName(ITEMS.Names.Apple), 20, 1);
+    lootTable.addItem(ITEMS.getByName(ITEMS.Names.Wood), 1, 2);
+    lootTable.addItem(ITEMS.getByName(ITEMS.Names.Wood), 1, 2);
+    lootTable.addItem(ITEMS.getByName(ITEMS.Names.Wood), 1, 2);
+    lootTable.addItem(ITEMS.getByName(ITEMS.Names.Wood), 1, 2);
+    lootTable.addItem(ITEMS.getByName(ITEMS.Names.Wood), 1, 2);
+    let health = 480;
+    let ent = ENTITY.Tree.new(health, lootTable);
+    ent.name = ENTITY.ENTITIES.BirchTree;
+    ent.renderer.sprite = sprite;
     ent.collider.rect = SHAPES.RECT.new(
         VECTOR2.new(24,56),
         VECTOR2.new(8,8)

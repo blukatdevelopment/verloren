@@ -96,5 +96,41 @@ ENTITY.baseEntity.new = function(){
         return be.tags.includes(tag);
     };
     be.isPlayer = function(){ return false; };
+    be.dropItem = function(item){
+        // Create an item stack within short range of body
+        let itemStack = ENTITY.ItemStack.new(item);
+        let position = be.position.clone();
+        let drift = 32;
+        let placed = false;
+        let offset = null;
+        itemStack.position = position;
+        SCENE.createEntity(itemStack);
+        console.log("Creating item to drop " + itemStack);
+        // Position the item stack
+        itemStack.collider.rigid = true;
+        let iterations = 0;
+        while(!placed && iterations < 1000){
+          offset = VECTOR2.new(UTILITY.randRange(-drift, drift),UTILITY.randRange(-drift, drift));
+          let dropPos = offset.add(position);
+          let collision = itemStack.collider.moveAndCollideShort(dropPos, true, [be.getEntityId()]);
+          if(!collision){
+            placed = true;
+          }
+          iterations++;
+        }
+
+        itemStack.collider.rigid = false;
+
+    };
+    be.destroy = function(){
+        if(be.lootTable){
+          let loot = be.lootTable.getLoot();
+          for(let item of loot){
+            be.dropItem(item);
+          }
+        }
+        SCENE.destroyEntity(be);
+    };
+
     return be;
 };

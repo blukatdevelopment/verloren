@@ -57,6 +57,14 @@ ITEMS.Config.starterPack = function(){
             sprite: SPRITES.static.items.Resin,
             stackSize: 8,
     });
+    ITEMS.Names.Wood = "Wood";
+    config.push({
+            type: ITEMS.Types.Base,
+            name: ITEMS.Names.Wood,
+            description: "A fine material.",
+            sprite: SPRITES.static.items.Wood,
+            stackSize: 8,
+    });
     ITEMS.Names.Torch = "Torch";
     config.push({
             type: ITEMS.Types.Gear,

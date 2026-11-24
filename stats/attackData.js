@@ -14,6 +14,9 @@ STATS.AttackData.new = function(direction, damage, sender, options){
   if(options.knockback){
     ad.knockback = options.knockback;
   }
+  if(options.tags){
+    ad.tags = options.tags;
+  }
 
   return ad;
 };

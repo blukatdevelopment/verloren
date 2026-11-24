@@ -28,7 +28,6 @@ ACTORFACTORY.Deer = function(){
   se.stats.setAttributeValue(STATS.Attributes.healthMax, 3);
   se.stats.setAttributeValue(STATS.Attributes.speed, 1.5);
   se.onInteract = function(){
-    UTILITY.openBranchingDialogue(DIALOGUE.Deer.Apple(), se);
   };
 
   let lootTable = ITEMS.LootTable.new();

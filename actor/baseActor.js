@@ -328,16 +328,39 @@ ACTOR.new = function(){
     str += ", pos: " + atr.position.toString();
     str += "]";
     return str;
-  }
-  atr.equip = function(item, slot){
+  };
+  atr.equipFromHotbar = function(item, slot){
+    if(item == null || slot == null){
+      return;
+    }
+    if(atr.paperdoll.getItem(slot)){
+      return; // Slot is full. Don't replace.
+    }
+    if(!atr.hotbar.containsItem(item)){
+      return; // This item's not in the hotbar
+    }
+    atr.paperdoll.setItem(slot, item);
+    atr.hotbar.removeItem(item);
+
+    UTILITY.notification("Equipped " + item.name);
+    return true;
+  };
+  atr.equip = function(item, slot, suppressNotifications){
     if(item == null){
       return;
     }
-    UTILITY.notification("Equipped " + item.name);
+    if(suppressNotifications == null){
+      suppressNotifications = false;
+    }
+    if(!suppressNotifications){
+      UTILITY.notification("Equipped " + item.name);
+    }
+
     if(item.effects){
       atr.stats.addEffects(item.effects);  
     }
-    if(slot == GEAR.slotIndices.hand || slot == GEAR.slotIndices.offHand){
+
+    if(!suppressNotifications && slot == GEAR.slotIndices.hand || slot == GEAR.slotIndices.offHand){
       if(!atr.itemsDrawn){
         // Draw your item on equip
         atr.toggleItemsDrawn();

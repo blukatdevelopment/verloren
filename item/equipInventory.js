@@ -16,6 +16,15 @@ ITEMS.EquipInventory.new = function(size, linkedActor){
                 ei.linkedActor.equip(item, slot);
             }
         }
+        else{
+            console.log("Invalid slot: " + slot);
+        }
+        // Re-equip all items, in case of swapping slots
+        for(let item of ei.slots){
+            if(item){
+                ei.linkedActor.equip(item, slot, true);
+            }
+        }
     };
     return ei;
 };

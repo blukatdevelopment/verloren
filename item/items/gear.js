@@ -28,6 +28,17 @@ ITEMS.Gear.new = function(){
         }
         return clone;
     };
+    g.use = function(actor){
+        if(actor == null){
+            return;
+        }
+        for(let slot of g.slots){
+            if(actor.equipFromHotbar(g, GEAR.slotIndices[slot])){
+                return;
+            }
+        }
+
+    };
     return g;
 };
 

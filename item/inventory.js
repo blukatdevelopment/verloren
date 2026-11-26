@@ -11,6 +11,15 @@ ITEMS.Inventory.new = function(size){
     for(let i = 0; i < size; i++){
         inv.slots.push(null);
     };
+    inv.containsItem = function(item){
+        for(let i = 0; i < inv.slots.length; i++){
+            let slotItem = inv.slots[i];
+            if(item == slotItem){
+                return true;
+            }
+        }
+        return false;
+    }
     inv.removeItem = function(item){
         for(let i = 0; i < inv.slots.length; i++){
             let slotItem = inv.slots[i];
@@ -34,6 +43,7 @@ ITEMS.Inventory.new = function(size){
         }
         return null;
     };
+
     inv.setItem = function(slot, item){
         if(slot > -1 && slot < inv.size){
             inv.slots[slot] = item;

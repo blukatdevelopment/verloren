@@ -33,7 +33,7 @@ ITEMS.BaseItem.new = function(){
         item.quantity += quantityStored;
         return overflow;
     };
-    item.use = function(){};
+    item.use = function(actor){};
     item.clone = function(){
         let clone = ITEMS.BaseItem.new();
         clone.name = item.name;

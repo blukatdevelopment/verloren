@@ -27,7 +27,7 @@ Art: https://libresprite.github.io/online/
 - Cinematic/cutscene/slideshow scripting
 - Settings screen
 - Input remapping / controller support
-- Destructible terrain(Trees/Rocks/Grass)
+- Mining(Destructible rocks)
 - Jukebox with playlists(combat, peaceful)
 - Asset import tool (converting images to text)
 - Spell system
@@ -41,6 +41,7 @@ Art: https://libresprite.github.io/online/
 - Local multiplayer coop
 - Sleep / Exhaustion
 - Icons for active status effects
+- Book item that displays contents when used
 
 #### Refactor/fix todo list
 - Render Inventory, Paperdoll, Statusbar, and Hotbar programatically.

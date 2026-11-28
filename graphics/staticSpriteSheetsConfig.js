@@ -55,7 +55,7 @@ SETTINGS.staticSheetList.push({
         "MeatLeg", "Flower1", "Flower2", "Flower3",
         "Flower4", "Flower5", "Flower6", "SeedPouch",
         "Grass", "Shrub1", "Shrub2", "Shrub3",
-        "Resin", "Torch", "Wood"
+        "Resin", "Torch", "Wood", "Cultivator"
     ]
 });
 

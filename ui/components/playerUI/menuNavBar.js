@@ -14,7 +14,7 @@ UI.COMPONENTS.MenuNavBar.new = function(manager){
             VECTOR2.new(41,20)
         ),
         "Equip",
-        () => { mnb.manager.activeMenu = MENUS.Equip; }
+        () => { mnb.manager.setActiveMenu(MENUS.Equip); }
     );
     mnb.craftingButton = UI.COMPONENTS.TextButton.new(
         SHAPES.RECT.new(
@@ -22,7 +22,7 @@ UI.COMPONENTS.MenuNavBar.new = function(manager){
             VECTOR2.new(41,20)
         ),
         "Craft",
-        () => { mnb.manager.activeMenu = MENUS.Craft; }
+        () => { mnb.manager.setActiveMenu(MENUS.Craft); }
     );
     
     mnb.update = function(){

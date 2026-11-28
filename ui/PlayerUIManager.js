@@ -26,15 +26,15 @@ UI.COMPONENTS.PlayerUIManager.new = function(){
 
         if(INPUT.keyPress(INPUT.KEYS.K_TAB)){
             if(cm.activeMenu == MENUS.None){
-                cm.activeMenu = MENUS.Equip;
+                cm.setActiveMenu(MENUS.Equip);
                 SCENE.setGameState(GAMESTATES.playerMenus);
             }
             else if(cm.activeMenu == MENUS.Equip){
-                cm.activeMenu = MENUS.None;
+                cm.setActiveMenu(MENUS.None);
                 SCENE.setGameState(GAMESTATES.play);
             }
             else if(cm.activeMenu == MENUS.Craft){
-                cm.activeMenu = MENUS.Equip;
+                cm.setActiveMenu(MENUS.Equip);
             }
         }
 
@@ -212,5 +212,11 @@ UI.COMPONENTS.PlayerUIManager.new = function(){
         cm.statusbar.linkActor(actor);
         cm.paperdoll.linkedInv = actor.paperdoll;
     };
+    cm.setActiveMenu = function(menu){
+        if(cm.activeMenu == MENUS.Craft && menu != MENUS.Craft){
+            cm.craftingMenu.closed = true;
+        }
+        cm.activeMenu = menu;
+    }
     return cm;
 };

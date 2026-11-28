@@ -395,14 +395,12 @@ ACTOR.new = function(){
   atr.canCraft = function(recipe){
     for(let ingredient of recipe.ingredients){
       if(ingredient.quantity > atr.queryItemQuantity(ingredient.itemName)){
-        UTILITY.notification("Recipe requires more " + ingredient.itemName);
         return false;
       }
     }
     let product = ITEMS.getByName(recipe.product.itemName);
     product.quantity = recipe.product.quantity;
     if(!atr.canStoreItem(product)){
-      UTILITY.notification("Nowhere to put " + recipe.product.itemName);
       return false;
     }
     return true;

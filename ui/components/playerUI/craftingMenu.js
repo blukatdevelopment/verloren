@@ -8,6 +8,7 @@ UI.COMPONENTS.CraftingMenu.new = function(manager){
         VECTOR2.new(123,128),
         VECTOR2.new(155,200)
     );
+    cm.closed = false;
     cm.pageSize = 10;
     cm.page = UTILITY.PagedArray.new(UI.COMPONENTS.CraftingMenu.getRecipeComponents(), cm.pageSize);
     cm.panel = UI.COMPONENTS.Panel.new(cm.rect);
@@ -27,8 +28,11 @@ UI.COMPONENTS.CraftingMenu.new = function(manager){
         "Previous",
         () => { cm.page.previousPage(); }
     );
-    // Left: 278 Bottom: 328
     cm.update = function(){
+        if(cm.closed){
+            cm.page = UTILITY.PagedArray.new(UI.COMPONENTS.CraftingMenu.getRecipeComponents(), cm.pageSize);
+            cm.closed = false;
+        }
         for(let recipe of cm.page.getPageElements()){
             recipe.update();
         }
@@ -54,9 +58,12 @@ UI.COMPONENTS.CraftingMenu.new = function(manager){
 };
 
 UI.COMPONENTS.CraftingMenu.getRecipeComponents = function(){
+    let player = SCENE.getPlayerOne();
     let components = [];
     for(let recipe of CRAFTING.Recipes){
-        components.push(UI.COMPONENTS.Recipe.new(recipe));
+        if(actor == null || player.canCraft(recipe)){
+            components.push(UI.COMPONENTS.Recipe.new(recipe));
+        }
     }
     return components;
 };

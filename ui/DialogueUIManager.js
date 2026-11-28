@@ -18,17 +18,17 @@ UI.COMPONENTS.DialogueUIManager.new = function(_parent){
         }
     };
     dm.openLinearDialogue = function(messages){
-        dm.parent.activeMenu = MENUS.Dialogue;
+        dm.parent.setActiveMenu(MENUS.Dialogue);
         dm.activeDialogue = UI.COMPONENTS.LinearDialogue.new(messages);
         SCENE.setGameState(GAMESTATES.playerMenus);
     };
     dm.openBranchingDialogue = function(nodes){
-        dm.parent.activeMenu = MENUS.Dialogue;
+        dm.parent.setActiveMenu(MENUS.Dialogue);
         dm.activeDialogue = UI.COMPONENTS.BranchingDialogue.new(nodes);
         SCENE.setGameState(GAMESTATES.playerMenus);
     };
     dm.closeDialogue = function(){
-        dm.parent.activeMenu = MENUS.None;
+        dm.parent.setActiveMenu(MENUS.None);
         SCENE.setGameState(GAMESTATES.play);
         dm.activeDialogue = null;
     };
